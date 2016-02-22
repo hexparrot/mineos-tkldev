@@ -1,0 +1,6 @@
+MineOS Web-Ui: https://$ipaddr:8443
+Minecraft:  $ipaddr:25565
+
+SSH/SFTP:   root@$ipaddr (port 22)
+
+Please note, only the above ports (22,8443,25565) are open by default. Servers that run on any other ports must be opened in the iptables firewall, e.g., 80, 25570.

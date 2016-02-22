@@ -1,0 +1,22 @@
+#!/bin/sh -ex
+echo "do nothing - core requires no post-package configuration commands"
+
+# turn off root-login by default
+sed -i 's/^PermitRootLogin.*/PermitRootLogin no/' $CHROOT/etc/ssh/sshd_config
+
+# add node4 to apt-get repos
+curl -sL https://deb.nodesource.com/setup_4.x | bash -
+apt-get -y install nodejs
+
+# install webui from git
+cd /usr/games
+git clone --depth=1 https://github.com/hexparrot/mineos-node minecraft
+cd minecraft
+git config core.filemode false
+chmod +x generate-sslcert.sh mineos_console.js service.js webui.js
+cp mineos.conf /etc/mineos.conf
+npm install
+ln -s /usr/games/minecraft/mineos_console.js /usr/local/bin/mineos
+
+# disable webmin
+update-rc.d webmin disable

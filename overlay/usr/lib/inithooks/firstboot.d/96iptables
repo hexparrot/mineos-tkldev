@@ -1,0 +1,13 @@
+#!/bin/bash -e
+# secure firewall
+
+iptables -P INPUT ACCEPT
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 8443 -j ACCEPT
+
+iptables -A INPUT -p tcp -m tcp --dport 25565 -j ACCEPT
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -P INPUT DROP
+
+iptables-save > /etc/iptables-rules

@@ -1,0 +1,9 @@
+#include <turnkey/base>
+git
+screen
+rdiff-backup
+rsync
+mysql-server
+supervisor
+build-essential
+openjdk-7-jre-headless
