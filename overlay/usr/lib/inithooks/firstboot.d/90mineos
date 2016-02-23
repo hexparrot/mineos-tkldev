@@ -1,7 +1,6 @@
 #!/bin/bash -e
 
 cd /usr/games/minecraft
-./generate-sslcert.sh
 
 #git init
 #git remote add origin https://github.com/hexparrot/mineos-node
@@ -12,3 +11,5 @@ chown -R root:mc /var/games/minecraft/import
 chmod -R g+w /var/games/minecraft/import
 
 ln -s /usr/games/minecraft/mineos_console.js /usr/local/bin/mineos
+supervisorctl reread
+supervisorctl update
