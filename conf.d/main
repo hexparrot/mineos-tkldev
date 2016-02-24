@@ -8,6 +8,11 @@ sed -i 's/^PermitRootLogin.*/PermitRootLogin no/' $CHROOT/etc/ssh/sshd_config
 curl -sL https://deb.nodesource.com/setup_4.x | bash -
 apt-get -y install nodejs
 
+# add jessie-backports for openjdk8
+echo "deb http://http.debian.net/debian jessie-backports main" >> /etc/apt/sources.list.d/sources.list
+apt-get update
+apt-get -y -t jessie-backports install openjdk-8-jre-headless
+
 # install webui from git
 cd /usr/games
 git clone --depth=1 https://github.com/hexparrot/mineos-node minecraft

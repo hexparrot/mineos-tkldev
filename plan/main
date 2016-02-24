@@ -6,4 +6,3 @@ rsync
 mysql-server
 supervisor
 build-essential
-openjdk-7-jre-headless
