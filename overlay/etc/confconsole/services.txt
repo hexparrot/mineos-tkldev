@@ -1,6 +1,8 @@
+Welcome to MineOS.  You can access the web user interface through HTTPS on port 8443.  SSH is also enabled on the default port 22.
+
 MineOS Web-Ui: https://$ipaddr:8443
-Minecraft:  $ipaddr:25565
+SSH/SFTP:   mc@$ipaddr (port 22)
 
-SSH/SFTP:   root@$ipaddr (port 22)
+Root SSH/SFTP login is disabled by default but can be enabled through /etc/ssh/sshd_config.
 
-Please note, only the above ports (22,8443,25565) are open by default. Servers that run on any other ports must be opened in the iptables firewall, e.g., 80, 25570.
+Please note, out of the box, only ports 22, 8443, & 25565 (default Minecraft port) are open. Servers and services that run on any other ports must be opened in the iptables firewall manually, e.g., 80, 25570.
