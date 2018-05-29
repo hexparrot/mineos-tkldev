@@ -5,7 +5,7 @@ echo "do nothing - core requires no post-package configuration commands"
 sed -i 's/^PermitRootLogin.*/PermitRootLogin no/' $CHROOT/etc/ssh/sshd_config
 
 # add node4 to apt-get repos
-curl -sL https://deb.nodesource.com/setup_4.x | bash -
+curl -sL https://deb.nodesource.com/setup_8.x | bash -
 apt-get -y install nodejs
 
 # add jessie-backports for openjdk8
