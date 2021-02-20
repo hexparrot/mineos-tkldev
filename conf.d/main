@@ -4,14 +4,9 @@ echo "do nothing - core requires no post-package configuration commands"
 # turn off root-login by default
 sed -i 's/^PermitRootLogin.*/PermitRootLogin no/' $CHROOT/etc/ssh/sshd_config
 
-# add node4 to apt-get repos
-curl -sL https://deb.nodesource.com/setup_8.x | bash -
+# add node8 to apt-get repos
+curl -sL https://deb.nodesource.com/setup_10.x | bash -
 apt-get -y install nodejs
-
-# add jessie-backports for openjdk8
-echo "deb http://http.debian.net/debian jessie-backports main" >> /etc/apt/sources.list.d/sources.list
-apt-get update
-apt-get -y -t jessie-backports install openjdk-8-jre-headless
 
 # install webui from git
 cd /usr/games

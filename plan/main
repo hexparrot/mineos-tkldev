@@ -3,6 +3,7 @@ git
 screen
 rdiff-backup
 rsync
-mysql-server
+mariadb-server
 supervisor
 build-essential
+openjdk-11-jre-headless
