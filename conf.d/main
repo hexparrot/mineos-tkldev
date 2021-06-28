@@ -1,12 +1,18 @@
 #!/bin/sh -ex
-echo "do nothing - core requires no post-package configuration commands"
 
 # turn off root-login by default
 sed -i 's/^PermitRootLogin.*/PermitRootLogin no/' $CHROOT/etc/ssh/sshd_config
 
-# add node8 to apt-get repos
-curl -sL https://deb.nodesource.com/setup_10.x | bash -
+# add node14 to apt-get repos
+curl -sL https://deb.nodesource.com/setup_14.x | bash -
 apt-get -y install nodejs
+
+# add java16
+wget https://github.com/AdoptOpenJDK/openjdk16-binaries/releases/download/jdk-16.0.1%2B9/OpenJDK16U-jre_x64_linux_hotspot_16.0.1_9.tar.gz -O openjdk-16-jre.tgz
+tar xf openjdk-16-jre.tgz
+mv jdk-16.0.* /opt/openjdk-16.0-jre
+ln -s /opt/openjdk-16.0-jre/bin/java /usr/bin/java
+rm openjdk-16-jre.tgz
 
 # install webui from git
 cd /usr/games

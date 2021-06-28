@@ -6,4 +6,3 @@ rsync
 mariadb-server
 supervisor
 build-essential
-openjdk-11-jre-headless
