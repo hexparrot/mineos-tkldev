@@ -7,12 +7,12 @@ sed -i 's/^PermitRootLogin.*/PermitRootLogin no/' $CHROOT/etc/ssh/sshd_config
 curl -sL https://deb.nodesource.com/setup_14.x | bash -
 apt-get -y install nodejs
 
-# add java16
-wget https://github.com/AdoptOpenJDK/openjdk16-binaries/releases/download/jdk-16.0.1%2B9/OpenJDK16U-jre_x64_linux_hotspot_16.0.1_9.tar.gz -O openjdk-16-jre.tgz
-tar xf openjdk-16-jre.tgz
-mv jdk-16.0.* /opt/openjdk-16.0-jre
-ln -s /opt/openjdk-16.0-jre/bin/java /usr/bin/java
-rm openjdk-16-jre.tgz
+# add java17
+wget https://github.com/AdoptOpenJDK/openjdk17-binaries/releases/download/jdk-2021-05-07-13-31/OpenJDK-jdk_x64_linux_hotspot_2021-05-06-23-30.tar.gz -O openjdk-17-jre.tgz
+tar xf openjdk-17-jre.tgz
+mv jdk-17* /opt/openjdk-17.0-jre
+ln -s /opt/openjdk-17.0-jre/bin/java /usr/bin/java
+rm openjdk-17-jre.tgz
 
 # install webui from git
 cd /usr/games
@@ -26,3 +26,5 @@ ln -s /usr/games/minecraft/mineos_console.js /usr/local/bin/mineos
 
 # disable webmin
 update-rc.d webmin disable
+
+# revert yescrypt to sha512

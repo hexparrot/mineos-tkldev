@@ -5,11 +5,11 @@ Based on the proven Debian foundation, Turnkey Linux is a perfect delivery syste
 
 Features:
 
-- **Base Operating System**: Debian GNU/Linux 8 (Jessie).
+- **Base Operating System**: Debian GNU/Linux 10 (Bullseye).
 
 - **Web management interface** (MineOS):
    
-  - Listens on port 8443 (uses SSL).
+  - Listens on port 8443 (uses HTTPS).
   - Many server types to choose from, e.g., Vanilla, FTB, Spigot, Pocketmine
 
 - **First boot initialization**:
